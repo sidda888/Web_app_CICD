@@ -1,9 +1,7 @@
 pipeline{
     agent any
 
-    environment {
-        AWS_CREDENTIALS_ID = ''
-    }
+    
 
 
     stages {
