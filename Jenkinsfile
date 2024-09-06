@@ -20,7 +20,7 @@ pipeline{
         stage('Deploy to AWS CodeDeploy') {
             steps{
                 script {
-                    withAWS(region: 'us-east-1', credentials: AWS_CREDENTIALS_ID) {
+                    withAWS(region: 'us-east-1') {
                         awsCodeDeploy application: 'CodeDeployApp',
                                       deploymentGroup: 'CodeDeployGroup',
                                       revisionType: 'Github',
