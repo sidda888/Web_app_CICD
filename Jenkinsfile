@@ -54,13 +54,14 @@ pipeline{
                        echo "Commit ID: ${commitId}"
                        env.COMMIT_ID = commitId
 
-                       sh '''
+                       sh """
+                       
                        aws deploy create-deployment \
                        --application-name CodeDeployApp \
                        --deployment-group-name CodeDeployGroup \
                        --github-location repository=sidda888/Web-app-CICD,commitId=${env.COMMIT_ID} \
                        --region us-east-1
-                       '''
+                       """
 
                     }
                 }
