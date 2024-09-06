@@ -21,11 +21,14 @@ pipeline{
             steps{
                 script {
                     withAWS(region: 'us-east-1', credentials:'aws-credentials-id') {
-                        awsCodeDeploy application: 'CodeDeployApp',
-                                      deploymentGroup: 'CodeDeployGroup',
-                                      revisionType: 'Github',
-                                      gitHubLocation: [repository: 'sidda888/Web-app-CICD', commitId: 'master']
-                                       
+                       sh '''
+                       aws deploy create-deployment \
+                       --application-name CodeDeployApp \
+                       --deployment-group-name CodeDeployGroup \
+                       --github-location repository=sidda888/Web-app-CICD,commitId=master \
+                       --region us-east-1
+                       '''
+
                     }
                 }
             }
