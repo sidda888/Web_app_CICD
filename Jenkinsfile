@@ -1,7 +1,9 @@
 pipeline{
     agent any
 
-    
+    environment {
+        PATH = "$HOME/bin:$PATH"
+    }
 
 
     stages {
@@ -21,6 +23,7 @@ pipeline{
                 
                 else
                     echo "AWS CLI is already installed"
+                    echo $PATH
                 fi
 
                 '''
