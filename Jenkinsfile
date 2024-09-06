@@ -51,6 +51,7 @@ pipeline{
                     withAWS(region: 'us-east-1', credentials:'aws-credentials-id') {
                        // get the latest commit ID from the repository 
                        def commitId = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                       echo "Commit ID: ${commitId}"
 
                        sh '''
                        aws deploy create-deployment \
