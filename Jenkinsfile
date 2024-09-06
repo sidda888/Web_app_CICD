@@ -49,11 +49,14 @@ pipeline{
             steps{
                 script {
                     withAWS(region: 'us-east-1', credentials:'aws-credentials-id') {
+                       // get the latest commit ID from the repository 
+                       def commitId = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+
                        sh '''
                        aws deploy create-deployment \
                        --application-name CodeDeployApp \
                        --deployment-group-name CodeDeployGroup \
-                       --github-location repository=sidda888/Web-app-CICD,commitId=master \
+                       --github-location repository=sidda888/Web-app-CICD,commitId=${commitId} \
                        --region us-east-1
                        '''
 
