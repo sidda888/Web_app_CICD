@@ -52,12 +52,13 @@ pipeline{
                        // get the latest commit ID from the repository 
                        def commitId = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
                        echo "Commit ID: ${commitId}"
+                       env.COMMIT_ID = commitId
 
                        sh '''
                        aws deploy create-deployment \
                        --application-name CodeDeployApp \
                        --deployment-group-name CodeDeployGroup \
-                       --github-location repository=sidda888/Web-app-CICD,commitId=${commitId} \
+                       --github-location repository=sidda888/Web-app-CICD,commitId=${env.COMMIT_ID} \
                        --region us-east-1
                        '''
 
