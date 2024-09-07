@@ -59,7 +59,7 @@ pipeline{
                        aws deploy create-deployment \
                        --application-name CodeDeployApp \
                        --deployment-group-name CodeDeployGroup \
-                       --github-location repository=sidda888/Web-app-CICD,commitId=${env.COMMIT_ID} \
+                       --github-location repository=sidda888/Web_app_CICD,commitId=${env.COMMIT_ID} \
                        --region us-east-1
                        """
 
