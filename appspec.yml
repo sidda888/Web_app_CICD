@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /var/www/html
 hooks:
-  AfterInstall:
+  BeforeInstall:
     - location: scripts/start_server.sh
       timeout: 300
       runas: root

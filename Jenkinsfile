@@ -35,7 +35,7 @@ pipeline{
 
         stage('Clone Repository'){
             steps{
-                git branch: 'master', url: 'https://github.com/sidda888/Web_app_CICD.git'
+                git branch: 'main', url: 'https://github.com/sidda888/Web_app_CICD.git'
             }
         }
 
