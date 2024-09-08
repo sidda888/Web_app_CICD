@@ -5,7 +5,7 @@ const os = require('os');  // Import os module to get the hostname (instance ID)
 const app = express();
 const port = 3000;
 
-// Health check route
+// Health check routee
 app.get('/health', (req, res) => {
     res.status(200).send('OK');
 });
