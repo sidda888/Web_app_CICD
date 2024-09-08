@@ -1,5 +1,6 @@
 #/bin/bash
 
+mkdir -p /home/ec2-user/node-app
 ## Navigate to application Directory
 cd /home/ec2-user/node-app
 
