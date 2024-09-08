@@ -1,6 +1,6 @@
 #/bin/bash
 
-## Navigate to application Directory 
+## Navigate to application Directory.
 cd /home/ec2-user/node-app
 
 ## Initialize a Node.js project
