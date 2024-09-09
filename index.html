@@ -2,37 +2,10 @@
 <html>
 <head>
     <title>My Simple Web Application</title>
-    <script>
-        // Fetch EC2 instance metadata and display it in the HTML
-        function fetchInstanceId() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("PUT", "http://169.254.169.254/latest/api/token", true);
-            xhr.setRequestHeader("X-aws-ec2-metadata-token-ttl-seconds", "21600");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var token = xhr.responseText;
-                    var xhrInstanceId = new XMLHttpRequest();
-                    xhrInstanceId.open("GET", "http://169.254.169.254/latest/meta-data/instance-id", true);
-                    xhrInstanceId.setRequestHeader("X-aws-ec2-metadata-token", token);
-                    xhrInstanceId.onreadystatechange = function () {
-                        if (xhrInstanceId.readyState === 4 && xhrInstanceId.status === 200) {
-                            document.getElementById("instance-id").innerText = "Served by EC2 Instance: " + xhrInstanceId.responseText;
-                        }
-                    };
-                    xhrInstanceId.send();
-                }
-            };
-            xhr.send();
-        }
-    </script>
 </head>
-<body onload="fetchInstanceId()">
+<body>
     <h1>Welcome to My Web Application!</h1>
     <p>This is a simple HTML web page hosted using AWS, Jenkins, and CodeDeploy.</p>
-    
-    <!-- Placeholder for EC2 instance information -->
-    <p id="instance-id">Loading instance information...</p>
-
-    <!-- Added a comment to trigger the Jenkins Webhook -->
+    <!-- Added a comment to trigure the Jenkins Webhookk -->
 </body>
 </html>
